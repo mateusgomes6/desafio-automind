@@ -47,4 +47,43 @@ def buscar_usuario():
             return
     print('Usuário não encontrado.')
 
+def excluir_usuario():
+    print('\n--- Excluir Usuário ---')
+    nome_excluir = input('Digite o nome do usuário a ser excluído: ').strip().lower()
+
+    for usuario in lista_usuarios:
+        if usuario['nome'].strip().lower() == nome_excluir:
+            lista_usuarios.remove(usuario)
+            print('Usuário excluído com sucesso.')
+            return
+    print('Usuário não encontrado.')
+
+def menu():
+    while True:
+        print('\n--- Menu ---')
+        print('1. Cadastrar Usuário')
+        print('2. Listar Usuários')
+        print('3. Buscar Usuário')
+        print('4. Excluir Usuário')
+        print('5. Sair')
+
+        opcao = input('Escolha uma opção: ')
+
+        if opcao == '1':
+            cadastrar_usuario()
+        elif opcao == '2':
+            listar_usuarios()
+        elif opcao == '3':
+            buscar_usuario()
+        elif opcao == '4':
+            excluir_usuario()
+        elif opcao == '5':
+            print('Saindo...')
+            break
+        else:
+            print('Opção inválida. Tente novamente.')
+
+if __name__ == '__main__':
+    menu()
+
     
