@@ -1,7 +1,7 @@
 lista_usuarios = []
 
 def cadastrar_usuario():
-    print("\n--- Cadastro de Usuário ---")
+    print('\n--- Cadastro de Usuário ---')
 
     nome = input('Nome: ')
     email = input('Email: ')
@@ -28,11 +28,23 @@ def cadastrar_usuario():
     return usuario
 
 def listar_usuarios():
-    print("\n--- Lista de Usuários ---")
-    
+    print('\n--- Lista de Usuários ---')
+
     if not lista_usuarios:
         print('Nenhum usuário cadastrado.')
         return
 
     for usuario in lista_usuarios:
         print(f"Nome: {usuario['nome']}, Email: {usuario['email']}, Idade: {usuario['idade']}")
+
+def buscar_usuario():
+    print('\n--- Buscar Usuário ---')
+    nome_busca = input('Digite o nome do usuário: ').strip().lower
+
+    for usuario in lista_usuarios:
+        if usuario['nome'].strip().lower() == nome_busca:
+            print(f"Nome: {usuario['nome']}, Email: {usuario['email']}, Idade: {usuario['idade']}")
+            return
+    print('Usuário não encontrado.')
+
+    
